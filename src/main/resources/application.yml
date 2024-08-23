@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: recepcao-presenca
+
+  datasource:
+    url: jdbc:postgresql://localhost:5434/recepcao-presenca-db
+    username: postgres
+    password: Urso@2005
+    driverClassName: org.postgresql.Driver
+  sql.init.mode: never
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+server:
+  port: 8082
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
